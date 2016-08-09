@@ -1,9 +1,13 @@
+var btn = document.getElementById('translate');
+var request = new XMLHttpRequest();
+
 $(function(){
   var $txtArea = $('#textArea'),
       $result = $('#result'),
       $translate = $('#translate');
 
-$translate.on(click,function(){
+
+$('#translate').click(function(){
 $.ajax({
   url: "https://yoda.p.mashape.com/yoda?sentence=You+will+learn+how+to+speak+like+me+someday.++Oh+wait.",
   header: {
@@ -23,4 +27,5 @@ datatype: 'json',
 .fail(function(request, textStatus, errorThrown){
   $txtArea.text('Error:' +  request.status + '' + textStatus + '' + errorThrown);
   });
+});
 });
